@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ログイン / 新規登録 — MEOコンシェルジュ</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f3460 100%);
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 24px;
+}
+.logo-link {
+  display: flex; align-items: center; gap: 8px; text-decoration: none;
+  margin-bottom: 32px;
+}
+.logo-link span:first-child { color: white; font-size: 22px; font-weight: 900; }
+.logo-link .green { color: #06c755; }
+.card {
+  background: white; border-radius: 24px; padding: 40px 36px;
+  width: 100%; max-width: 440px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.3);
+}
+.tabs { display: flex; background: #f1f5f9; border-radius: 12px; padding: 4px; margin-bottom: 32px; }
+.tab {
+  flex: 1; padding: 10px; text-align: center; border-radius: 10px;
+  cursor: pointer; font-size: 14px; font-weight: 600; color: #64748b;
+  transition: background .2s, color .2s; border: none; background: none;
+}
+.tab.active { background: white; color: #0f172a; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+
+.trial-badge {
+  background: linear-gradient(90deg, #06c755, #6366f1);
+  color: white; border-radius: 10px; padding: 12px 16px;
+  font-size: 13px; font-weight: 600; text-align: center;
+  margin-bottom: 24px; line-height: 1.5;
+}
+
+.form-group { margin-bottom: 18px; }
+label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 6px; }
+input {
+  width: 100%; padding: 12px 14px; border: 1.5px solid #e2e8f0;
+  border-radius: 10px; font-size: 15px; outline: none;
+  transition: border-color .2s, box-shadow .2s; font-family: inherit;
+}
+input:focus { border-color: #06c755; box-shadow: 0 0 0 3px rgba(6,199,85,.12); }
+
+.btn-google {
+  width: 100%; padding: 12px; border: 1.5px solid #e2e8f0;
+  border-radius: 10px; background: white; font-size: 14px; font-weight: 600;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  gap: 10px; margin-bottom: 20px; transition: border-color .2s, background .2s;
+  color: #374151;
+}
+.btn-google:hover { border-color: #9ca3af; background: #f9fafb; }
+.btn-google img { width: 20px; height: 20px; }
+
+.divider { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; color: #9ca3af; font-size: 13px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
+
+.btn-primary {
+  width: 100%; padding: 14px; background: #06c755; color: white;
+  border: none; border-radius: 10px; font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: #05a847; transform: translateY(-1px); }
+
+.forgot { text-align: right; margin-top: -10px; margin-bottom: 16px; }
+.forgot a { font-size: 13px; color: #64748b; text-decoration: none; }
+.forgot a:hover { color: #06c755; }
+
+.terms-note {
+  font-size: 12px; color: #9ca3af; text-align: center; margin-top: 16px; line-height: 1.6;
+}
+.terms-note a { color: #06c755; text-decoration: none; }
+.terms-note a:hover { text-decoration: underline; }
+
+.back-link { color: rgba(255,255,255,.5); text-decoration: none; font-size: 13px; margin-top: 24px; transition: color .2s; }
+.back-link:hover { color: white; }
+
+/* タブ切り替え */
+.panel { display: none; }
+.panel.active { display: block; }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="logo-link">
+  <span>MEO<span class="green">コンシェルジュ</span></span>
+</a>
+
+<div class="card">
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('login', this)">ログイン</button>
+    <button class="tab" onclick="switchTab('register', this)">新規登録</button>
+  </div>
+
+  <!-- ログインパネル -->
+  <div class="panel active" id="panel-login">
+    <button class="btn-google" onclick="alert('Google認証は本番環境で利用できます')">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      Googleアカウントでログイン
+    </button>
+    <div class="divider">または</div>
+    <div class="form-group">
+      <label>メールアドレス</label>
+      <input type="email" placeholder="your@email.com" />
+    </div>
+    <div class="form-group">
+      <label>パスワード</label>
+      <input type="password" placeholder="••••••••" />
+    </div>
+    <div class="forgot"><a href="#">パスワードをお忘れの方</a></div>
+    <button class="btn-primary" onclick="alert('ログイン機能は本番環境で利用できます')">ログイン</button>
+    <p class="terms-note" style="margin-top:20px">
+      アカウントをお持ちでない方は<a href="#" onclick="switchTabByName('register')">新規登録</a>へ
+    </p>
+  </div>
+
+  <!-- 新規登録パネル -->
+  <div class="panel" id="panel-register">
+    <div class="trial-badge">🎉 今なら1ヶ月無料トライアル！<br>クレジットカード登録不要で今すぐ始められます</div>
+    <button class="btn-google" onclick="alert('Google認証は本番環境で利用できます')">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      Googleアカウントで登録
+    </button>
+    <div class="divider">または</div>
+    <div class="form-group">
+      <label>店舗名</label>
+      <input type="text" placeholder="例：焼肉 大将" />
+    </div>
+    <div class="form-group">
+      <label>メールアドレス</label>
+      <input type="email" placeholder="your@email.com" />
+    </div>
+    <div class="form-group">
+      <label>パスワード（8文字以上）</label>
+      <input type="password" placeholder="••••••••" />
+    </div>
+    <button class="btn-primary" onclick="alert('登録機能は本番環境で利用できます')">無料トライアルを始める 🚀</button>
+    <p class="terms-note">
+      登録することで<a href="terms.html" target="_blank">利用規約</a>および
+      <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意したものとみなされます。
+    </p>
+  </div>
+</div>
+
+<a href="index.html" class="back-link">← サービスサイトに戻る</a>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
+}
+function switchTabByName(name) {
+  const tabs = document.querySelectorAll('.tab');
+  tabs[name === 'login' ? 0 : 1].click();
+}
+</script>
+</body>
+</html>
