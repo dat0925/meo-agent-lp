@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MEOコンシェルジュ — Googleビジネスプロフィールをかしこく管理</title>
-<meta name="description" content="口コミ返信・投稿作成・データ分析をLINEで完結。AIが24時間対応するGBP管理サービス。月額3,980円から。1ヶ月無料トライアル。">
+<meta name="description" content="口コミ返信・投稿作成・データ分析をLINEで完結。AIが24時間対応するGBP管理サービス。月額3,980円から。7日間無料トライアル。">
 <style>
 :root {
   --green: #1a7a4a;
@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
   color: var(--text); background: var(--bg); line-height: 1.75;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; font-size: 16px;
 }
 
 /* ---- ナビ ---- */
@@ -140,7 +140,7 @@ section { padding: 80px 32px; }
   font-size: clamp(22px, 3vw, 34px); font-weight: 900;
   letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 14px;
 }
-.section-sub { font-size: 15px; color: var(--text-mid); max-width: 520px; line-height: 1.8; }
+.section-sub { font-size: 16px; color: var(--text-mid); max-width: 520px; line-height: 1.8; }
 .centered { text-align: center; }
 .centered .section-sub { margin: 0 auto; }
 
@@ -155,8 +155,8 @@ section { padding: 80px 32px; }
   border: 1px solid var(--border);
 }
 .problem-card .icon { font-size: 24px; margin-bottom: 12px; display: block; }
-.problem-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
-.problem-card p { font-size: 13px; color: var(--text-mid); line-height: 1.7; }
+.problem-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.problem-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
 
 /* ---- 機能 ---- */
 .features-grid {
@@ -173,8 +173,8 @@ section { padding: 80px 32px; }
   border-radius: 10px; display: flex; align-items: center;
   justify-content: center; font-size: 20px; margin-bottom: 16px;
 }
-.feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-.feature-card p { font-size: 13px; color: var(--text-mid); line-height: 1.75; }
+.feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.feature-card p { font-size: 14px; color: var(--text-mid); line-height: 1.75; }
 .feature-tag {
   display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 600;
   color: var(--green); background: var(--green-light); padding: 3px 10px;
@@ -199,8 +199,8 @@ section { padding: 80px 32px; }
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 18px; position: relative; z-index: 1;
 }
-.flow-step h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
-.flow-step p { font-size: 12px; color: var(--text-mid); }
+.flow-step h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.flow-step p { font-size: 13px; color: var(--text-mid); }
 
 /* ---- 連携 ---- */
 .integration-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
@@ -234,12 +234,29 @@ section { padding: 80px 32px; }
 .plan-price { font-size: 36px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
 .plan-price sub { font-size: 14px; font-weight: 600; letter-spacing: 0; }
 .plan-price-note { font-size: 12px; color: var(--text-light); margin-bottom: 20px; }
-.plan-desc { font-size: 13px; color: var(--text-mid); padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--border); line-height: 1.7; }
+.plan-desc { font-size: 14px; color: var(--text-mid); padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--border); line-height: 1.7; }
 .plan-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-.plan-list li { font-size: 13px; display: flex; align-items: flex-start; gap: 8px; }
+.plan-list li { font-size: 14px; display: flex; align-items: flex-start; gap: 8px; }
 .plan-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
 .plan-list li.off { color: var(--text-light); }
 .plan-list li.off::before { content: '–'; color: var(--border); }
+.plan-included {
+  background: var(--green-light); color: var(--green);
+  border: 1px solid var(--green-mid); border-radius: 8px;
+  padding: 9px 14px; font-size: 13px; font-weight: 600;
+  margin-bottom: 16px; display: flex; align-items: center; gap: 6px;
+}
+.plan-plus-divider {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; color: var(--text-light);
+  letter-spacing: .06em; text-transform: uppercase;
+  margin: 4px 0 12px;
+}
+.plan-plus-divider::before, .plan-plus-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.plan-list li.new { color: var(--text); font-weight: 600; }
+.plan-list li.new::before { content: '＋'; color: var(--green); font-weight: 800; }
 .plan-btn {
   display: block; text-align: center; padding: 13px;
   border-radius: var(--radius); font-size: 14px; font-weight: 700;
@@ -256,7 +273,7 @@ section { padding: 80px 32px; }
 .faq-inner { max-width: 680px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 8px; }
 .faq-item { background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 .faq-q {
-  padding: 18px 20px; font-size: 14px; font-weight: 600; cursor: pointer;
+  padding: 18px 20px; font-size: 15px; font-weight: 600; cursor: pointer;
   display: flex; justify-content: space-between; align-items: center;
   user-select: none; gap: 12px;
 }
@@ -264,7 +281,7 @@ section { padding: 80px 32px; }
 .faq-item.open .faq-q .arr { transform: rotate(45deg); }
 .faq-a {
   max-height: 0; overflow: hidden; transition: max-height .3s, padding .3s;
-  font-size: 13px; color: var(--text-mid); line-height: 1.8; padding: 0 20px;
+  font-size: 14px; color: var(--text-mid); line-height: 1.8; padding: 0 20px;
 }
 .faq-item.open .faq-a { max-height: 200px; padding: 0 20px 18px; }
 
@@ -324,7 +341,7 @@ footer {
 </head>
 <body>
 
-<div class="topbar">🎉 今なら1ヶ月無料トライアル — <a href="https://dat0925.github.io/meo-agent/">クレジットカード不要で今すぐ試す</a></div>
+<div class="topbar">🎉 今なら7日間無料トライアル — <a href="https://dat0925.github.io/meo-agent/">クレジットカード不要で今すぐ試す</a></div>
 
 <nav id="nav">
   <a href="index.html" class="nav-logo">MEO<em>コンシェルジュ</em></a>
@@ -350,14 +367,14 @@ footer {
       普段使いのLINEから話しかけるだけで全部できます。
     </p>
     <div class="hero-btns">
-      <a href="https://dat0925.github.io/meo-agent/" class="btn-main">1ヶ月無料で試す</a>
+      <a href="https://dat0925.github.io/meo-agent/" class="btn-main">7日間無料で試す</a>
       <a href="#features" class="btn-sub">機能を見る</a>
     </div>
-    <p class="hero-note">クレジットカード不要 ・ 1ヶ月無料 ・ いつでも解約可能</p>
+    <p class="hero-note">クレジットカード不要 ・ 7日間無料 ・ いつでも解約可能</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num">24<span>h</span></div><div class="lbl">365日対応</div></div>
       <div class="hero-stat"><div class="num">3<span>分</span></div><div class="lbl">で導入完了</div></div>
-      <div class="hero-stat"><div class="num">1<span>ヶ月</span></div><div class="lbl">無料トライアル</div></div>
+      <div class="hero-stat"><div class="num">7<span>日間</span></div><div class="lbl">無料トライアル</div></div>
     </div>
   </div>
 
@@ -370,7 +387,7 @@ footer {
       <div class="mock-msg bot">新しい口コミが届きました（★2）。返信文を用意しました。</div>
       <div class="mock-msg user">内容を見せて</div>
       <div class="mock-msg bot">「山田様、この度はご不満をおかけし大変申し訳ございません。ご意見を真摯に受け止め、改善に取り組んでまいります。」<br><br>このまま投稿しますか？</div>
-      <div class="mock-chip">🔧 generate_review_reply</div>
+      <div class="mock-chip">🔧 口コミ返信を生成中</div>
       <div class="mock-msg user">投稿して</div>
       <div class="mock-msg bot">✅ 返信を投稿しました。</div>
     </div>
@@ -411,7 +428,7 @@ footer {
 <section id="features">
   <div class="inner">
     <div class="centered">
-      <span class="section-label">Features</span>
+      <span class="section-label">機能紹介</span>
       <h2 class="section-title">AIコンシェルジュができること</h2>
       <p class="section-sub">LINEで話しかけるだけ。面倒な操作は一切ありません。</p>
     </div>
@@ -460,7 +477,7 @@ footer {
 <section class="flow">
   <div class="inner">
     <div class="centered">
-      <span class="section-label">Getting started</span>
+      <span class="section-label">始め方</span>
       <h2 class="section-title">始め方はとてもシンプルです</h2>
       <p class="section-sub">最短3分でAIコンシェルジュがあなたの店舗のサポートを始めます。</p>
     </div>
@@ -492,7 +509,7 @@ footer {
 <!-- 連携 -->
 <section>
   <div class="inner centered">
-    <span class="section-label">Integrations</span>
+    <span class="section-label">連携サービス</span>
     <h2 class="section-title">主要ツールに対応</h2>
     <p class="section-sub">普段使いのツールからそのまま話しかけられます。</p>
     <div class="integration-row">
@@ -508,17 +525,18 @@ footer {
 <section id="pricing" style="background: var(--bg-section);">
   <div class="inner">
     <div class="centered">
-      <span class="section-label">Pricing</span>
+      <span class="section-label">料金プラン</span>
       <h2 class="section-title">シンプルな料金プラン</h2>
-      <p class="section-sub">すべてのプランに1ヶ月無料トライアル付き。いつでも解約できます。</p>
+      <p class="section-sub">すべてのプランに7日間無料トライアル付き。いつでも解約できます。</p>
     </div>
     <div class="pricing-grid">
 
+      <!-- ライト -->
       <div class="plan">
         <div class="plan-name">ライト</div>
         <div class="plan-price">¥3,980<sub>/月</sub></div>
-        <div class="plan-price-note">税込 ・ 月50回のAI相談</div>
-        <div class="plan-desc">小規模店舗や個人事業主向け。まずは口コミ対応と投稿更新をAIに任せたい方に。</div>
+        <div class="plan-price-note">税込</div>
+        <div class="plan-desc">個人・小規模店舗向け。口コミ対応と投稿更新をまずAIに任せたい方に。</div>
         <ul class="plan-list">
           <li>月50回のAI相談</li>
           <li>口コミ返信の生成・投稿</li>
@@ -527,44 +545,42 @@ footer {
           <li>口コミ自動監視（毎時）</li>
           <li>月次レポート</li>
           <li class="off">Slack連携</li>
+          <li class="off">写真管理サポート</li>
           <li class="off">複数店舗対応</li>
         </ul>
         <a href="https://dat0925.github.io/meo-agent/" class="plan-btn plan-btn-line">無料で始める</a>
       </div>
 
+      <!-- スタンダード -->
       <div class="plan featured">
         <div class="plan-badge">一番人気</div>
         <div class="plan-name">スタンダード</div>
         <div class="plan-price">¥9,800<sub>/月</sub></div>
-        <div class="plan-price-note">税込 ・ 月200回のAI相談</div>
-        <div class="plan-desc">成長中の店舗向け。全機能が使えてLINE・Slack両方に対応。本格的に集客を強化したい方に。</div>
-        <ul class="plan-list">
-          <li>月200回のAI相談</li>
-          <li>口コミ返信の生成・投稿</li>
-          <li>GBP投稿の提案・公開</li>
-          <li>LINE連携（1アカウント）</li>
-          <li>口コミ自動監視（毎時）</li>
-          <li>月次レポート＋KPI分析</li>
-          <li>Slack連携</li>
-          <li>写真管理サポート</li>
+        <div class="plan-price-note">税込</div>
+        <div class="plan-desc">成長中の店舗向け。本格的に集客を強化したい方に。</div>
+        <div class="plan-included">✓ ライトの全機能を含む</div>
+        <div class="plan-plus-divider">追加される機能</div>
+        <ul class="plan-list" style="margin-bottom:28px">
+          <li class="new">月200回のAI相談（ライトの4倍）</li>
+          <li class="new">Slack連携</li>
+          <li class="new">写真管理サポート</li>
+          <li class="new">月次レポート＋KPI詳細分析</li>
+          <li class="off">複数店舗対応</li>
         </ul>
         <a href="https://dat0925.github.io/meo-agent/" class="plan-btn plan-btn-fill">無料で始める</a>
       </div>
 
+      <!-- プレミアム -->
       <div class="plan">
         <div class="plan-name">プレミアム</div>
         <div class="plan-price">¥19,800<sub>/月</sub></div>
-        <div class="plan-price-note">税込 ・ 月500回のAI相談</div>
-        <div class="plan-desc">複数店舗を持つオーナーやチェーン・フランチャイズ向け。最大3店舗まで一括管理できます。</div>
-        <ul class="plan-list">
-          <li>月500回のAI相談</li>
-          <li>口コミ返信の生成・投稿</li>
-          <li>GBP投稿の提案・公開</li>
-          <li>LINE連携（1アカウント）</li>
-          <li>口コミ自動監視（毎時）</li>
-          <li>月次レポート＋KPI分析</li>
-          <li>Slack連携</li>
-          <li>複数店舗対応（最大3店舗）</li>
+        <div class="plan-price-note">税込</div>
+        <div class="plan-desc">複数店舗を持つオーナーやチェーン向け。最大3店舗を一括管理できます。</div>
+        <div class="plan-included">✓ スタンダードの全機能を含む</div>
+        <div class="plan-plus-divider">追加される機能</div>
+        <ul class="plan-list" style="margin-bottom:28px">
+          <li class="new">月500回のAI相談（スタンダードの2.5倍）</li>
+          <li class="new">複数店舗対応（最大3店舗）</li>
         </ul>
         <a href="https://dat0925.github.io/meo-agent/" class="plan-btn plan-btn-line">無料で始める</a>
       </div>
@@ -581,13 +597,13 @@ footer {
 <section class="faq" id="faq">
   <div class="inner">
     <div class="centered">
-      <span class="section-label">FAQ</span>
+      <span class="section-label">よくある質問</span>
       <h2 class="section-title">よくある質問</h2>
     </div>
     <div class="faq-inner">
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">無料トライアル中に解約した場合、料金はかかりますか？<span class="arr">+</span></div>
-        <div class="faq-a">かかりません。トライアル期間（30日間）中に解約すれば、費用は一切発生しません。解約はマイページから1クリックで完了します。</div>
+        <div class="faq-a">かかりません。トライアル期間（7日間）中に解約すれば、費用は一切発生しません。解約はマイページから1クリックで完了します。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">AIが勝手に口コミ返信を投稿することはありますか？<span class="arr">+</span></div>
@@ -616,7 +632,7 @@ footer {
 <!-- CTA -->
 <section class="cta-section">
   <div class="inner">
-    <h2>まずは1ヶ月、無料で試してみてください</h2>
+    <h2>まずは7日間、無料で試してみてください</h2>
     <p>クレジットカード登録不要。設定は最短3分。いつでも解約できます。</p>
     <a href="https://dat0925.github.io/meo-agent/" class="btn-white">無料トライアルを始める →</a>
     <p class="cta-note">ライト・スタンダード・プレミアムすべてのプランで無料トライアルが利用できます</p>
